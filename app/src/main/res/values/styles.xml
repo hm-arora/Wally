@@ -8,4 +8,7 @@
         <item name="android:statusBarColor">@color/black</item>
     </style>
 
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/ic_launch_screen</item>
+    </style>
 </resources>

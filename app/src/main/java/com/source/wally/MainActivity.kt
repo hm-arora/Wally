@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private var mPath: String = ""
     private var sharedPreferenceHelper: SharedPreferenceHelper? = null
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initView()
