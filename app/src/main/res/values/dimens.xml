@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="common_0_dp">0dp</dimen>
+    <dimen name="common_2_dp">2dp</dimen>
+    <dimen name="common_3_dp">3dp</dimen>
+    <dimen name="common_4_dp">4dp</dimen>
+    <dimen name="common_5_dp">5dp</dimen>
+    <dimen name="common_6_dp">6dp</dimen>
+    <dimen name="common_8_dp">8dp</dimen>
+    <dimen name="common_10_dp">10dp</dimen>
+    <dimen name="common_12_dp">12dp</dimen>
+    <dimen name="common_14_dp">14dp</dimen>
+    <dimen name="common_15_dp">15dp</dimen>
+    <dimen name="common_16_dp">16dp</dimen>
+    <dimen name="common_18_dp">18dp</dimen>
+    <dimen name="common_20_dp">20dp</dimen>
+    <dimen name="common_22_dp">22dp</dimen>
+    <dimen name="common_24_dp">24dp</dimen>
+    <dimen name="common_28_dp">28dp</dimen>
+    <dimen name="common_30_dp">30dp</dimen>
+    <dimen name="common_32_dp">32dp</dimen>
+    <dimen name="common_36_dp">36dp</dimen>
+    <dimen name="common_40_dp">40dp</dimen>
+    <dimen name="common_50_dp">50dp</dimen>
+    <dimen name="common_60_dp">60dp</dimen>
+    <dimen name="common_65_dp">65dp</dimen>
+    <dimen name="common_100_dp">100dp</dimen>
+    <dimen name="common_140_dp">140dp</dimen>
+
+
+    <!-- Common Text Size -->
+    <dimen name="h0">30sp</dimen>
+    <dimen name="h1">24sp</dimen>
+    <dimen name="h2">20sp</dimen>
+    <dimen name="h3">18sp</dimen>
+    <dimen name="h3_1">17sp</dimen>
+    <dimen name="h4">16sp</dimen>
+    <dimen name="h4_1">15sp</dimen>
+    <dimen name="h5">14sp</dimen>
+    <dimen name="h5_1">13sp</dimen>
+    <dimen name="h6">12sp</dimen>
+    <dimen name="h7">10sp</dimen>
+    <dimen name="h8">8sp</dimen>
+
+    <dimen name="activityPadding">16dp</dimen>
+    <dimen name="placeholderImage">60dp</dimen>
+    <dimen name="placeholderTextHeight">8dp</dimen>
+
+    <dimen name="padding_10">10dp</dimen>
+    <dimen name="padding_n">14dp</dimen>
+    <dimen name="text_heading_profile">24sp</dimen>
+    <dimen name="text_heading">18sp</dimen>
+
+
+</resources>

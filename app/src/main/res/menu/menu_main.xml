@@ -1,0 +1,42 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <item
+        android:id="@+id/menu_features"
+        android:icon="@drawable/ic_vertical_dots"
+        android:orderInCategory="10"
+        android:title="Features"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_feedback"
+        android:icon="@drawable/ic_vertical_dots"
+        android:orderInCategory="10"
+        android:title="Feedback"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_rate"
+        android:icon="@drawable/ic_vertical_dots"
+        android:orderInCategory="10"
+        android:title="Rate on play store"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_github"
+        android:icon="@drawable/ic_vertical_dots"
+        android:orderInCategory="10"
+        android:title="Github"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_about"
+        android:icon="@drawable/ic_vertical_dots"
+        android:orderInCategory="10"
+        android:title="About Developer"
+        app:showAsAction="never" />
+
+
+</menu>

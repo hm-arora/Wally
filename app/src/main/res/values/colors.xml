@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="light_black">#212121</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="black_disable">#6b000000</color>
+    <color name="black_20_opacity">#32000000</color>
+    <color name="black_40_opacity">#999999</color>
+    <color name="black_10_opacity">#1A000000</color>
+    <color name="black_70_opacity">#B3000000</color>
+
+    <!-- Generic-->
+    <color name="subheadingColor">#252525</color>
+    <color name="truckTypeColor">#3d3d3d</color>
+    <color name="black_50_opacity">#80000000</color>
+    <color name="rating_bar">#61cc18</color>
+    <color name="green_30_opac">#4D00A460</color>
+    <color name="navyBlue">#0683DA</color>
+    <color name="FBBlue">#3C4C9C</color>
+    <color name="dark_blue">#006b99</color>
+    <color name="purple">#5212b2</color>
+    <color name="sky">#f0f2fa</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="chip_color">#f8ffec</color>
+    <color name="white_70_opacity">#B3FFFFFF</color>
+    <color name="black_60_opac">#99000000</color>
+    <color name="yellow">#fae939</color>
+    <color name="snackbar_red">#D50000</color>
+    <color name="snackbar_message">#1A1A1A</color>
+    <color name="red">#ff3434</color>
+    <color name="dark_red">#d32222</color>
+    <color name="off_white">#fdfbfb</color>
+    <color name="profile_complete">#fafafa</color>
+    <color name="red2">#c23d3d</color>
+    <color name="pending_yellow">#fff1cb</color>
+    <color name="pending_yellow_dark">#db8c00</color>
+    <color name="light_yellow">#FFFF99</color>
+
+    <!--shipment dispatch -->
+    <color name="orange">#ff754a</color>
+    <color name="pink">#e91e63</color>
+    <color name="green">#00b24a</color>
+    <color name="light_green">#0fb855</color>
+    <color name="dark_yellow">#534916</color>
+
+
+    <color name="location_bg_color">#f2f2f2</color>
+    <color name="light_blue">#f0f7ff</color>
+    <color name="l_blue">#edf7ff</color>
+    <color name="blue">#d4e7fc</color>
+    <color name="blue1">#0336ff</color>
+    <color name="background">#dddddd</color>
+    <color name="blue_otp_btn">#6b0077ff</color>
+
+    <!-- grey variants-->
+    <color name="grey_light">#fcfcfc</color>
+    <color name="l_grey">#EAEAEA</color>
+    <color name="l1_grey">#a3a3a3</color>
+    <color name="light_grey">#E5E5E5</color>
+    <color name="ll_grey">#fbfbfb</color>
+    <color name="d_grey">#6C6C6C</color>
+    <color name="d1_grey">#979797</color>
+    <color name="dark_grey">#ebebeb</color>
+    <color name="grey_opacity">#336C6C6C</color>
+    <color name="grey">#7a7a7a</color>
+    <color name="grey2">#9e9e9e</color>
+    <color name="grey_otp_btn">#e0e0e0</color>
+    <color name="light_grey_btn">#c4c4c4</color>
+
+    <color name="brown">#8b572a</color>
+</resources>
