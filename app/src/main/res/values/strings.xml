@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Wally</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="select_the_image_folder">Select the image folder</string>
+    <string name="select_the_color_list">Select the color list</string>
+    <string name="wallpaper_action">Click here to enable the app\'s live wallpaper. Double tap on the home screen to change the color of the wallpaper.</string>
+</resources>
