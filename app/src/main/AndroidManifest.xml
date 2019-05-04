@@ -22,18 +22,17 @@
             android:label="Wallpaper Example"
             android:permission="android.permission.BIND_WALLPAPER">
             <intent-filter>
-                <action android:name="android.service.wallpaper.WallpaperService">
-                </action>
+                <action android:name="android.service.wallpaper.WallpaperService" />
             </intent-filter>
 
             <meta-data
                 android:name="android.service.wallpaper"
-                android:resource="@xml/wally_wallpaper_service">
-            </meta-data>
+                android:resource="@xml/wally_wallpaper_service" />
         </service>
 
         <activity
-            android:name=".MainActivity">
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
