@@ -191,7 +191,17 @@ class Utils private constructor() {
                     -1,
                     ContextCompat.getColor(context, R.color.green_30_opac)
                 )
+
+            val timeBasedBucket = Bucket(
+                "Time based colors",
+                Constants.TIME_BASED_COLORS,
+                -1,
+                Color.parseColor(colorFromTime)
+            )
+
+            // add to the list
             colorBucketList.add(bucket)
+            colorBucketList.add(timeBasedBucket)
             for (i in 1..7) {
                 val listTypeNumber = "list$i"
                 val arrayList = Utils.getRandomMaterialColorAndSize(listTypeNumber, context)
