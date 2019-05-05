@@ -36,7 +36,7 @@ class WallyWallpaperService : WallpaperService() {
         private val drawRunner = Runnable { draw() }
         private var gestureDetector: GestureDetector? = null
         private var prefs: SharedPreferenceHelper? = null
-        private var broadcastReceiver: BroadcastReceiver ?= null
+        private var broadcastReceiver: BroadcastReceiver? = null
 
 
         override fun onCreate(surfaceHolder: SurfaceHolder?) {
@@ -47,6 +47,7 @@ class WallyWallpaperService : WallpaperService() {
             }
             setUpGestureDetector()
             setUpBroadCastReceiver()
+            handler.post(drawRunner)
         }
 
         private fun setUpGestureDetector() {
@@ -61,7 +62,7 @@ class WallyWallpaperService : WallpaperService() {
         }
 
         private fun setUpBroadCastReceiver() {
-            broadcastReceiver = object: BroadcastReceiver() {
+            broadcastReceiver = object : BroadcastReceiver() {
                 override fun onReceive(context: Context?, intent: Intent?) {
                     if (intent != null && intent.action == Constants.INTENT_ACTION_TIME_BASED) {
                         isTimeVariable = intent.getBooleanExtra(Constants.IS_TIME_VARIABLE, false)
