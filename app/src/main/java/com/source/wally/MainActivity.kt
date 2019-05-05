@@ -3,6 +3,7 @@ package com.source.wally
 import android.app.WallpaperManager
 import android.content.ComponentName
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -101,9 +102,42 @@ class MainActivity : AppCompatActivity() {
         popupMenu.setOnMenuItemClickListener { item ->
             val id = item.itemId
             when (id) {
+                R.id.menu_features -> {
+                    AlertDialogUtils.showDialogForAppUse(this)
+                    true
+                }
+
+                R.id.menu_feedback -> {
+                    onClickFeedbackOptions()
+                    true
+                }
+
+                R.id.menu_rate -> {
+                    true
+                }
+
+                R.id.menu_github -> {
+                    Toast.makeText(this@MainActivity, "Fetch Failed", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.menu_about -> {
+                    Toast.makeText(this@MainActivity, "Fetch Failed", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> true
+
             }
         }
         popupMenu.show()
+    }
+
+    private fun onClickFeedbackOptions() {
+        val intent = Intent(Intent.ACTION_SENDTO)
+        intent.data = Uri.parse("mailto:")
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("emailAddresshere"))
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Wally app feedback")
+        startActivity(Intent.createChooser(intent, "Testing send message title"))
     }
 
     private fun openSetWallpaperScreen() {
