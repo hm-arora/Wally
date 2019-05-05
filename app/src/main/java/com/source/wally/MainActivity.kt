@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.source.wally.adapters.GeneralRecyclerAdapter
 import com.source.wally.service.WallyWallpaperService
+import android.content.ActivityNotFoundException
 
 
 class MainActivity : AppCompatActivity() {
@@ -113,16 +114,17 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.menu_rate -> {
+                    openAppInPlayStore()
                     true
                 }
 
                 R.id.menu_github -> {
-                    Toast.makeText(this@MainActivity, "Fetch Failed", Toast.LENGTH_SHORT).show()
+                    openInBrowser(Constants.GITHUB_URL)
                     true
                 }
 
                 R.id.menu_about -> {
-                    Toast.makeText(this@MainActivity, "Fetch Failed", Toast.LENGTH_SHORT).show()
+                    openInBrowser(Constants.ABOUT_URL)
                     true
                 }
                 else -> true
@@ -130,6 +132,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
         popupMenu.show()
+    }
+
+    private fun openAppInPlayStore() {
+        val uri = Uri.parse("market://details?id=$packageName")
+        val goToMarket = Intent(Intent.ACTION_VIEW, uri)
+        goToMarket.addFlags(
+            Intent.FLAG_ACTIVITY_NO_HISTORY or
+                    Intent.FLAG_ACTIVITY_NEW_DOCUMENT or
+                    Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+        )
+        try {
+            startActivity(goToMarket)
+        } catch (e: ActivityNotFoundException) {
+            openInBrowser("http://play.google.com/store/apps/details?id=$packageName")
+        }
+
+    }
+
+    private fun openInBrowser(url: String) {
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        startActivity(browserIntent)
     }
 
     private fun onClickFeedbackOptions() {
