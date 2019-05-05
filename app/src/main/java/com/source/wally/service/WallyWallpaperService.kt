@@ -110,8 +110,6 @@ class WallyWallpaperService : WallpaperService() {
                 } else {
                     handler.removeCallbacks(drawRunner)
                 }
-            } else {
-                handler.post(drawRunner)
             }
         }
 
