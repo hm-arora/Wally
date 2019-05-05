@@ -1,5 +1,9 @@
 package com.source.wally.service
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Handler
 import android.service.wallpaper.WallpaperService
 import android.view.MotionEvent
@@ -12,6 +16,7 @@ import android.graphics.Rect
 import com.source.wally.utils.Utils
 import android.graphics.Paint.Align
 import android.util.TypedValue
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.source.wally.utils.Constants
 import com.source.wally.utils.RandomColor
 import com.source.wally.utils.SharedPreferenceHelper
@@ -31,6 +36,7 @@ class WallyWallpaperService : WallpaperService() {
         private val drawRunner = Runnable { draw() }
         private var gestureDetector: GestureDetector? = null
         private var prefs: SharedPreferenceHelper? = null
+        private var broadcastReceiver: BroadcastReceiver ?= null
 
 
         override fun onCreate(surfaceHolder: SurfaceHolder?) {
@@ -39,6 +45,11 @@ class WallyWallpaperService : WallpaperService() {
             if (prefs != null) {
                 isTimeVariable = prefs!!.getBoolean(SharedPreferenceHelper.SharedPrefKey.IS_TIME_VARIABLE, false)
             }
+            setUpGestureDetector()
+            setUpBroadCastReceiver()
+        }
+
+        private fun setUpGestureDetector() {
             gestureDetector = GestureDetector(applicationContext, object : GestureDetector.SimpleOnGestureListener() {
                 override fun onDoubleTap(e: MotionEvent): Boolean {
                     if (!isTimeVariable) {
@@ -47,6 +58,20 @@ class WallyWallpaperService : WallpaperService() {
                     return true
                 }
             })
+        }
+
+        private fun setUpBroadCastReceiver() {
+            broadcastReceiver = object: BroadcastReceiver() {
+                override fun onReceive(context: Context?, intent: Intent?) {
+                    if (intent != null && intent.action == Constants.INTENT_ACTION_TIME_BASED) {
+                        isTimeVariable = intent.getBooleanExtra(Constants.IS_TIME_VARIABLE, false)
+                        draw()
+                    }
+                }
+            }
+            val intentFilter = IntentFilter()
+            intentFilter.addAction(Constants.INTENT_ACTION_TIME_BASED)
+            LocalBroadcastManager.getInstance(applicationContext).registerReceiver(broadcastReceiver!!, intentFilter)
         }
 
         private fun draw() {
@@ -117,12 +142,14 @@ class WallyWallpaperService : WallpaperService() {
             super.onSurfaceDestroyed(holder)
             this.visible = false
             handler.removeCallbacks(drawRunner)
+            LocalBroadcastManager.getInstance(applicationContext).unregisterReceiver(broadcastReceiver!!)
         }
 
         override fun onDestroy() {
             super.onDestroy()
             this.visible = false
             handler.removeCallbacks(drawRunner)
+            LocalBroadcastManager.getInstance(applicationContext).unregisterReceiver(broadcastReceiver!!)
         }
 
         override fun onTouchEvent(event: MotionEvent) {

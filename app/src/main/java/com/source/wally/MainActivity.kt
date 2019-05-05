@@ -10,6 +10,7 @@ import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.Toast
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.source.wally.utils.*
 import kotlinx.android.synthetic.main.selectable_layout.*
 import java.io.File
@@ -46,6 +47,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    /**
+     * method to set the action view visibility (set up the wallpaper action)
+     */
     private fun setWallpaperActionVisibility() {
         val walInfo = WallpaperManager.getInstance(this).wallpaperInfo
         if (walInfo != null && walInfo.packageName == packageName) {
@@ -133,10 +137,7 @@ class MainActivity : AppCompatActivity() {
         generalRecyclerAdapter.setCurrentSelectedTile(currentSelectedTile!!)
         generalRecyclerAdapter.setOnClickItem(object : GeneralRecyclerAdapter.OnClickItem {
             override fun onClick(bucket: Bucket) {
-                sharedPreferenceHelper?.put(
-                    SharedPreferenceHelper.SharedPrefKey.SELECTED_COLORS,
-                    bucket.firstImageContainedPath!!
-                )
+                setSelectedBucket(bucket)
             }
         })
         rvColors.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
@@ -144,6 +145,18 @@ class MainActivity : AppCompatActivity() {
         rvColors.adapter = generalRecyclerAdapter
         rvColors.isNestedScrollingEnabled = false
         rvColors.isFocusableInTouchMode = false
+    }
+
+    private fun setSelectedBucket(bucket: Bucket) {
+        val isTimeVariable = bucket.firstImageContainedPath!! == Constants.TIME_BASED_COLORS
+        sharedPreferenceHelper?.put(SharedPreferenceHelper.SharedPrefKey.IS_TIME_VARIABLE, isTimeVariable)
+        sharedPreferenceHelper?.put(
+            SharedPreferenceHelper.SharedPrefKey.SELECTED_COLORS,
+            bucket.firstImageContainedPath!!
+        )
+        val broadcast = Intent(Constants.INTENT_ACTION_TIME_BASED)
+        broadcast.putExtra(Constants.IS_TIME_VARIABLE, isTimeVariable)
+        LocalBroadcastManager.getInstance(this@MainActivity).sendBroadcast(broadcast)
     }
 
     private fun setCardClickAction(isSolidColorCard: Boolean) {
