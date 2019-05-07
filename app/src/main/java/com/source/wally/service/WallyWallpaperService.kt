@@ -112,20 +112,20 @@ class WallyWallpaperService : WallpaperService() {
 
         private fun setColorUsingCurrentTime(canvas: Canvas) {
             val text = Utils.colorFromTime
-            val bounds = Rect()
-            val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.DITHER_FLAG)
-            paint.getTextBounds(text, 0, text.length, bounds)
-            paint.color = Color.RED
-            paint.textSize = TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_SP,
-                20f,
-                resources.displayMetrics
-            )
-            paint.textAlign = Align.LEFT
-            val x = canvas.width / 2 - bounds.width() / 2
-            val y = canvas.height / 2 - bounds.height() / 2
+//            val bounds = Rect()
+//            val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.DITHER_FLAG)
+//            paint.getTextBounds(text, 0, text.length, bounds)
+//            paint.color = Color.RED
+//            paint.textSize = TypedValue.applyDimension(
+//                TypedValue.COMPLEX_UNIT_SP,
+//                20f,
+//                resources.displayMetrics
+//            )
+//            paint.textAlign = Align.LEFT
+//            val x = canvas.width / 2 - bounds.width() / 2
+//            val y = canvas.height / 2 - bounds.height() / 2
             canvas.drawColor(Color.parseColor(text))
-            canvas.drawText(text, x.toFloat(), y.toFloat(), paint)
+//            canvas.drawText(text, x.toFloat(), y.toFloat(), paint)
         }
 
         override fun onVisibilityChanged(visible: Boolean) {
